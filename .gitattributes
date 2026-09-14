@@ -1,6 +1,7 @@
 * text=auto
 
 # Scripts shell precisam de LF para rodar em Linux/macOS/CI
+mvnw text eol=lf
 gradlew text eol=lf
 *.sh text eol=lf
 
