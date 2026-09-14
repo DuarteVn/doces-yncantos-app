@@ -1,0 +1,24 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# API (Maven)
+API/target/
+
+# APP (Android/Gradle)
+APP/.gradle/
+APP/build/
+APP/app/build/
+APP/local.properties
+APP/captures/
+APP/.externalNativeBuild/
+APP/.cxx/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+*.env

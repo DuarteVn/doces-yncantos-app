@@ -1,0 +1,15 @@
+* text=auto
+
+# Scripts shell precisam de LF para rodar em Linux/macOS/CI
+mvnw text eol=lf
+gradlew text eol=lf
+*.sh text eol=lf
+
+# Scripts Windows
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Binarios
+*.jar binary
+*.webp binary
+*.png binary
