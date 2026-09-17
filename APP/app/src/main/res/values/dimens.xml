@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Espaçamentos gerais da tela -->
+    <dimen name="login_padding_tela">24dp</dimen>
+    <dimen name="login_margin_topo_titulo">64dp</dimen>
+    <dimen name="login_espaco_secao">24dp</dimen>
+    <dimen name="login_espaco_label_campo">6dp</dimen>
+    <dimen name="login_espaco_toggle">8dp</dimen>
+
+    <!-- Logo -->
+    <dimen name="login_logo_tamanho">180dp</dimen>
+
+    <!-- Tamanhos de texto -->
+    <dimen name="login_texto_titulo">28sp</dimen>
+    <dimen name="login_texto_subtitulo">13sp</dimen>
+    <dimen name="login_texto_label">13sp</dimen>
+    <dimen name="login_texto_toggle">15sp</dimen>
+    <dimen name="login_texto_campo">15sp</dimen>
+    <dimen name="login_texto_botao_entrar">16sp</dimen>
+    <dimen name="login_texto_rodape">13sp</dimen>
+
+    <!-- Alturas dos componentes -->
+    <dimen name="login_altura_toggle">46dp</dimen>
+    <dimen name="login_altura_campo">48dp</dimen>
+    <dimen name="login_altura_botao_entrar">52dp</dimen>
+
+    <!--
+        Cantos arredondados (usados nos drawables).
+        O botão "Entrar" usa o MESMO raio dos botões de tipo (toggle),
+        para manter o padrão visual entre os 4 botões da tela.
+    -->
+    <dimen name="login_raio_toggle">14dp</dimen>
+    <dimen name="login_raio_campo">14dp</dimen>
+    <dimen name="login_raio_botao_entrar">@dimen/login_raio_toggle</dimen>
+
+    <!-- Espessura das bordas -->
+    <dimen name="login_borda_fina">1dp</dimen>
+    <dimen name="login_borda_media">1.5dp</dimen>
+
+    <!-- Preenchimento interno -->
+    <dimen name="login_padding_toggle_horizontal">16dp</dimen>
+    <dimen name="login_padding_campo_horizontal">16dp</dimen>
+</resources>

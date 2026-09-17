@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Monte seu Bolo</string>
+
+    <!-- Textos da tela de login -->
+    <string name="login_titulo">Doces Yncantos</string>
+    <string name="login_subtitulo">Entre para montar seus pedidos</string>
+    <string name="login_label_entrar_como">Entrar como</string>
+    <string name="login_opcao_cliente">Cliente</string>
+    <string name="login_opcao_confeiteira">Confeiteira</string>
+    <string name="login_opcao_admin">Admin</string>
+    <string name="login_label_email">E-mail</string>
+    <string name="login_label_senha">Senha</string>
+    <string name="login_botao_entrar">Entrar</string>
+    <string name="login_primeiro_acesso">Primeiro acesso? </string>
+    <string name="login_criar_conta">Criar conta</string>
+
+    <string name="login_msg_criar_conta">Tela de criar conta ainda não implementada</string>
+    <string name="login_alternar_visibilidade_senha">Mostrar ou ocultar senha</string>
+
+    <!-- Mensagens de erro do login -->
+    <string name="login_msg_credenciais_invalidas">E-mail, senha ou perfil incorretos</string>
+    <string name="login_msg_erro_conexao">Não foi possível conectar à API. Tente novamente</string>
+
+    <!-- Telas iniciais por perfil -->
+    <string name="home_titulo_cliente">Área do Cliente</string>
+    <string name="home_titulo_confeiteira">Área da Confeiteira</string>
+    <string name="home_titulo_admin">Área do Admin</string>
+    <string name="home_boas_vindas">Bem-vindo(a), %1$s!</string>
+    <string name="home_voltar">Voltar</string>
 </resources>

@@ -1,3 +1,12 @@
 <resources>
-    <style name="Theme.MonteSeuBolo" parent="Theme.Material3.DayNight.NoActionBar" />
+    <!--
+        Plus Jakarta Sans é a fonte "padrão" de todo o app (usada em labels,
+        campos, botões etc.). Definindo ela aqui no tema, toda tela nova que
+        os outros devs criarem já herda essa fonte automaticamente, sem
+        precisar declarar fontFamily em cada TextView.
+    -->
+    <style name="Theme.MonteSeuBolo" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
+        <item name="fontFamily">@font/plus_jakarta_sans</item>
+    </style>
 </resources>

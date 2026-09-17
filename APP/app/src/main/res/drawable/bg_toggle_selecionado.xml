@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fundo do botão toggle (Cliente/Confeiteira/Admin) QUANDO ele está selecionado -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="@color/pink_light" />
+
+    <stroke
+        android:width="@dimen/login_borda_media"
+        android:color="@color/pink_dark" />
+
+    <corners android:radius="@dimen/login_raio_toggle" />
+</shape>
