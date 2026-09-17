@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta da tela de login "Doces Yncantos" -->
+    <color name="background_cream">#FBF1E6</color>
+    <color name="text_brown">#3A2A20</color>
+    <color name="pink_primary">#E39AB0</color>
+    <color name="pink_light">#F6D9E3</color>
+    <color name="pink_dark">#D9668F</color>
+    <color name="gray_text">#9C9C9C</color>
+    <color name="gray_border">#E4DFD9</color>
 </resources>

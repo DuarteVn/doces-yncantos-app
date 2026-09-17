@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_cream">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/login_padding_tela">
+
+        <TextView
+            android:id="@+id/txtTituloHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_brown"
+            android:textSize="@dimen/login_texto_titulo"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtMensagemHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/login_texto_subtitulo" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgVoltarHome"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="top|start"
+        android:layout_margin="20dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="@string/home_voltar"
+        android:focusable="true"
+        android:src="@drawable/ic_seta_voltar" />
+
+</FrameLayout>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Tela de Login do app Doces Yncantos.
+    Um ScrollView por fora garante que a tela não quebre em telas pequenas
+    ou quando o teclado abrir; dentro dele, um LinearLayout organiza tudo
+    em coluna (um item embaixo do outro).
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_cream"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/login_padding_tela"
+        android:paddingEnd="@dimen/login_padding_tela"
+        android:paddingTop="@dimen/login_margin_topo_titulo"
+        android:paddingBottom="@dimen/login_espaco_secao">
+
+        <!-- Logo "Doces Yncantos", centralizada e alinhada ao mesmo padding horizontal do resto da tela -->
+        <ImageView
+            android:layout_width="@dimen/login_logo_tamanho"
+            android:layout_height="@dimen/login_logo_tamanho"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/login_titulo"
+            android:src="@drawable/logo_doces_yncantos" />
+
+        <!-- Subtítulo explicando o propósito da tela, também centralizado -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/login_subtitulo"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/login_texto_subtitulo" />
+
+        <!-- Label "Entrar como" -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_espaco_secao"
+            android:text="@string/login_label_entrar_como"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/login_texto_label" />
+
+        <!--
+            Linha com os 3 botões de tipo de usuário (Cliente / Confeiteira / Admin).
+            Cada "botão" é na verdade um TextView clicável: isso deixa o controle
+            total do visual (cor de fundo, borda, cantos) nas nossas mãos, sem as
+            regras automáticas que o Android aplica em um <Button> normal.
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_espaco_label_campo"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnCliente"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/login_altura_toggle"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/login_espaco_toggle"
+                android:background="@drawable/bg_toggle_selecionado"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/login_opcao_cliente"
+                android:textColor="@color/text_brown"
+                android:textSize="@dimen/login_texto_toggle"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnConfeiteira"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/login_altura_toggle"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/login_espaco_toggle"
+                android:background="@drawable/bg_toggle_normal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/login_opcao_confeiteira"
+                android:textColor="@color/text_brown"
+                android:textSize="@dimen/login_texto_toggle"  />
+
+            <TextView
+                android:id="@+id/btnAdmin"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/login_altura_toggle"
+                android:layout_weight="1"
+                android:background="@drawable/bg_toggle_normal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="@string/login_opcao_admin"
+                android:textColor="@color/text_brown"
+                android:textSize="@dimen/login_texto_toggle" />
+
+        </LinearLayout>
+
+        <!-- Campo de E-mail -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_espaco_secao"
+            android:text="@string/login_label_email"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/login_texto_label" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_altura_campo"
+            android:layout_marginTop="@dimen/login_espaco_label_campo"
+            android:background="@drawable/bg_campo_texto"
+            android:inputType="textEmailAddress"
+            android:paddingStart="@dimen/login_padding_campo_horizontal"
+            android:paddingEnd="@dimen/login_padding_campo_horizontal"
+            android:singleLine="true"
+            android:textColor="@color/text_brown"
+            android:textSize="@dimen/login_texto_campo" />
+
+        <!-- Campo de Senha -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_espaco_secao"
+            android:text="@string/login_label_senha"
+            android:textColor="@color/gray_text"
+            android:textSize="@dimen/login_texto_label" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_altura_campo"
+            android:layout_marginTop="@dimen/login_espaco_label_campo">
+
+            <EditText
+                android:id="@+id/edtSenha"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_campo_texto"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/login_padding_campo_horizontal"
+                android:paddingEnd="44dp"
+                android:singleLine="true"
+                android:textColor="@color/text_brown"
+                android:textSize="@dimen/login_texto_campo" />
+
+            <ImageView
+                android:id="@+id/imgAlternarSenha"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="@dimen/login_padding_campo_horizontal"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/login_alternar_visibilidade_senha"
+                android:focusable="true"
+                android:src="@drawable/ic_olho_aberto" />
+
+        </FrameLayout>
+
+        <!-- Botão principal "Entrar" -->
+        <TextView
+            android:id="@+id/btnEntrar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_altura_botao_entrar"
+            android:layout_marginTop="@dimen/login_espaco_secao"
+            android:background="@drawable/bg_botao_entrar_desabilitado"
+            android:clickable="true"
+            android:enabled="false"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/login_botao_entrar"
+            android:textColor="@color/white"
+            android:textSize="@dimen/login_texto_botao_entrar"
+            android:textStyle="bold" />
+
+        <!--
+            "Primeiro acesso? Criar conta" — usamos dois TextViews lado a lado
+            (em vez de um Spannable) porque assim cada trecho tem sua própria
+            cor/negrito direto no XML, o que é mais simples de ler e manter.
+        -->
+        <LinearLayout
+            android:id="@+id/linhaCriarConta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_primeiro_acesso"
+                android:textColor="@color/pink_primary"
+                android:textSize="@dimen/login_texto_rodape" />
+
+            <TextView
+                android:id="@+id/txtCriarConta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/login_criar_conta"
+                android:textColor="@color/pink_dark"
+                android:textSize="@dimen/login_texto_rodape"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
