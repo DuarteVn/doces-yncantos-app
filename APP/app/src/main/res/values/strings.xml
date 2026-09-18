@@ -27,4 +27,19 @@
     <string name="home_titulo_admin">Área do Admin</string>
     <string name="home_boas_vindas">Bem-vindo(a), %1$s!</string>
     <string name="home_voltar">Voltar</string>
+
+    <!-- Textos da tela de cadastro -->
+    <string name="cadastro_titulo">Criar conta</string>
+    <string name="cadastro_subtitulo">Cadastre-se para montar seus pedidos</string>
+    <string name="cadastro_label_nome">Nome e Sobrenome</string>
+    <string name="cadastro_label_telefone">Telefone / WhatsApp</string>
+    <string name="cadastro_label_confirmar_senha">Confirmar senha</string>
+    <string name="cadastro_botao_criar">Criar conta</string>
+    <string name="cadastro_ja_tem_conta">Já tem conta? </string>
+    <string name="cadastro_entrar">Entrar</string>
+    <string name="cadastro_erro_senhas_diferentes">As senhas não coincidem</string>
+    <string name="cadastro_erro_telefone_invalido">O telefone deve conter no mínimo 11 dígitos com DDD</string>
+    <string name="cadastro_erro_email_invalido">Informe um e-mail válido contendo \'@\'</string>
+    <string name="cadastro_erro_email_existente">Este e-mail já está cadastrado</string>
+    <string name="cadastro_msg_sucesso">Conta criada com sucesso!</string>
 </resources>

@@ -248,9 +248,8 @@ public class LoginActivity extends AppCompatActivity {
     // Configura o clique do link "Criar conta"
     private void configurarLinkCriarConta() {
         txtCriarConta.setOnClickListener(v -> {
-            // TODO: aqui entrará a navegação para a tela de cadastro
-            Log.d(TAG, "Clique em: Criar conta");
-            Toast.makeText(this, R.string.login_msg_criar_conta, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, CadastroActivity.class);
+            startActivity(intent);
         });
     }
 }

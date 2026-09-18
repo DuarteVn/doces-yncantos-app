@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".CadastroActivity" android:exported="false" />
         <activity android:name=".ClienteHomeActivity" android:exported="false" />
         <activity android:name=".ConfeiteiraHomeActivity" android:exported="false" />
         <activity android:name=".AdminHomeActivity" android:exported="false" />
