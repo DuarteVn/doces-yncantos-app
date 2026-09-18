@@ -2,6 +2,7 @@ package com.montseubolo.api.service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.montseubolo.api.dto.UsuarioAtualizacaoRequest;
 import com.montseubolo.api.dto.UsuarioCadastroRequest;
@@ -31,11 +32,16 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new RegraDeNegocioException(HttpStatus.CONFLICT, "Já existe um usuário cadastrado com este e-mail");
         }
 
+        Set<TipoUsuario> perfis = (request.perfis() == null || request.perfis().isEmpty())
+                ? Set.of(TipoUsuario.CLIENTE)
+                : new HashSet<>(request.perfis());
+
         Usuario usuario = new Usuario(
                 request.nome(),
                 request.email(),
+                request.telefone(),
                 passwordEncoder.encode(request.senha()),
-                new HashSet<>(request.perfis())
+                perfis
         );
 
         return UsuarioResponse.de(usuarioRepository.save(usuario));

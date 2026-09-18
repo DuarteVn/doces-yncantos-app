@@ -35,6 +35,9 @@ public class Usuario {
     @Column(nullable = false)
     private String senha;
 
+    @Column(nullable = false)
+    private String telefone;
+
     // Uma conta pode ter mais de um perfil (ex.: a mesma pessoa sendo
     // Confeiteira e Admin), e escolhe qual usar a cada login.
     @ElementCollection(fetch = FetchType.EAGER)
@@ -50,9 +53,10 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nome, String email, String senha, Set<TipoUsuario> perfis) {
+    public Usuario(String nome, String email, String telefone, String senha, Set<TipoUsuario> perfis) {
         this.nome = nome;
         this.email = email;
+        this.telefone = telefone;
         this.senha = senha;
         this.perfis = perfis;
     }
@@ -91,5 +95,13 @@ public class Usuario {
 
     public void setPerfis(Set<TipoUsuario> perfis) {
         this.perfis = perfis;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

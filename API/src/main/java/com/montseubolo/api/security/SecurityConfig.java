@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .sessionManagement(sessao -> sessao.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(excecoes -> excecoes.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .authorizeHttpRequests(autorizacao -> autorizacao
-                        .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/auth/login", "/api/auth/cadastro").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
                         .requestMatchers(
                                 "/swagger-ui/**",
