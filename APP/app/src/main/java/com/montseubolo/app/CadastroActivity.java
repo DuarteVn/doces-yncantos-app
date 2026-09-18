@@ -187,10 +187,7 @@ public class CadastroActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     Toast.makeText(CadastroActivity.this, R.string.cadastro_msg_sucesso, Toast.LENGTH_SHORT).show();
 
-                    // Redireciona diretamente para a tela inicial do cliente (Cenário 1)
-                    Intent intent = new Intent(CadastroActivity.this, ClienteHomeActivity.class);
-                    intent.putExtra(HomeActivity.EXTRA_NOME_USUARIO, response.body().getNome());
-                    startActivity(intent);
+                    // Retorna para a tela de Login para o cliente entrar com as novas credenciais
                     finish();
                     return;
                 }
