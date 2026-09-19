@@ -1,6 +1,6 @@
 package com.montseubolo.api.service;
 
-import java.util.HashSet;
+
 import java.util.List;
 
 import com.montseubolo.api.dto.UsuarioAtualizacaoRequest;
@@ -35,7 +35,8 @@ public class UsuarioServiceImpl implements UsuarioService {
                 request.nome(),
                 request.email(),
                 passwordEncoder.encode(request.senha()),
-                new HashSet<>(request.perfis())
+                request.perfil(),
+                request.telefone()
         );
 
         return UsuarioResponse.de(usuarioRepository.save(usuario));
@@ -49,20 +50,22 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public UsuarioResponse buscarPorId(String id) {
+    public UsuarioResponse buscarPorId(Long id) {
         return UsuarioResponse.de(buscarEntidadePorId(id));
     }
 
     @Override
-    public UsuarioResponse atualizar(String id, UsuarioAtualizacaoRequest request) {
+    public UsuarioResponse atualizar(Long id, UsuarioAtualizacaoRequest request) {
         Usuario usuario = buscarEntidadePorId(id);
         usuario.setNome(request.nome());
-        usuario.setPerfis(new HashSet<>(request.perfis()));
+        usuario.setPerfil(request.perfil());
+        usuario.setTelefone(request.telefone());
+        usuario.setAtivo(request.ativo());
         return UsuarioResponse.de(usuarioRepository.save(usuario));
     }
 
     @Override
-    public void excluir(String id) {
+    public void excluir(Long id) {
         if (!usuarioRepository.existsById(id)) {
             throw new RegraDeNegocioException(HttpStatus.NOT_FOUND, "Usuário não encontrado");
         }
@@ -74,19 +77,18 @@ public class UsuarioServiceImpl implements UsuarioService {
         Usuario usuario = usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new RegraDeNegocioException(HttpStatus.UNAUTHORIZED, "E-mail, senha ou perfil inválidos"));
 
-        boolean senhaValida = passwordEncoder.matches(senha, usuario.getSenha());
-        boolean possuiPerfil = usuario.getPerfis().contains(perfil);
+        boolean senhaValida = passwordEncoder.matches(senha, usuario.getSenhaHash());
+        boolean possuiPerfil = usuario.getPerfil() == perfil;
+        boolean ativo = usuario.isAtivo();
 
-        // Mensagem genérica de propósito: não revelamos qual dos três campos
-        // (e-mail, senha ou perfil) estava incorreto.
-        if (!senhaValida || !possuiPerfil) {
-            throw new RegraDeNegocioException(HttpStatus.UNAUTHORIZED, "E-mail, senha ou perfil inválidos");
+        if (!senhaValida || !possuiPerfil || !ativo) {
+            throw new RegraDeNegocioException(HttpStatus.UNAUTHORIZED, "E-mail, senha ou perfil inválidos ou inativos");
         }
 
         return usuario;
     }
 
-    private Usuario buscarEntidadePorId(String id) {
+    private Usuario buscarEntidadePorId(Long id) {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new RegraDeNegocioException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
     }
