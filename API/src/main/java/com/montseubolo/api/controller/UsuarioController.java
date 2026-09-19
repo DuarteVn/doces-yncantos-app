@@ -39,17 +39,17 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public UsuarioResponse buscarPorId(@PathVariable String id) {
+    public UsuarioResponse buscarPorId(@PathVariable Long id) {
         return usuarioService.buscarPorId(id);
     }
 
     @PutMapping("/{id}")
-    public UsuarioResponse atualizar(@PathVariable String id, @RequestBody @Valid UsuarioAtualizacaoRequest request) {
+    public UsuarioResponse atualizar(@PathVariable Long id, @RequestBody @Valid UsuarioAtualizacaoRequest request) {
         return usuarioService.atualizar(id, request);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluir(@PathVariable String id) {
+    public ResponseEntity<Void> excluir(@PathVariable Long id) {
         usuarioService.excluir(id);
         return ResponseEntity.noContent().build();
     }

@@ -1,63 +1,66 @@
 package com.montseubolo.api.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.time.OffsetDateTime;
 
-import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
-    private String id;
+    private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 120)
     private String nome;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 160)
     private String email;
 
-    @Column(nullable = false)
-    private String senha;
+    @Column(length = 20)
+    private String telefone;
 
-    // Uma conta pode ter mais de um perfil (ex.: a mesma pessoa sendo
-    // Confeiteira e Admin), e escolhe qual usar a cada login.
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(
-            name = "usuario_perfis",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            uniqueConstraints = @UniqueConstraint(columnNames = {"usuario_id", "perfil"})
-    )
+    @Column(name = "senha_hash", nullable = false, length = 72)
+    private String senhaHash;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "perfil", nullable = false)
-    private Set<TipoUsuario> perfis = new HashSet<>();
+    @Column(nullable = false, length = 12)
+    private TipoUsuario perfil;
+
+    @Column(nullable = false)
+    private boolean ativo = true;
+
+    @CreationTimestamp
+    @Column(name = "criado_em", nullable = false, updatable = false)
+    private OffsetDateTime criadoEm;
+
+    @UpdateTimestamp
+    @Column(name = "atualizado_em", nullable = false)
+    private OffsetDateTime atualizadoEm;
 
     public Usuario() {
     }
 
-    public Usuario(String nome, String email, String senha, Set<TipoUsuario> perfis) {
+    public Usuario(String nome, String email, String senhaHash, TipoUsuario perfil, String telefone) {
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
-        this.perfis = perfis;
+        this.senhaHash = senhaHash;
+        this.perfil = perfil;
+        this.telefone = telefone;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -77,19 +80,43 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public Set<TipoUsuario> getPerfis() {
-        return perfis;
+    public String getSenhaHash() {
+        return senhaHash;
     }
 
-    public void setPerfis(Set<TipoUsuario> perfis) {
-        this.perfis = perfis;
+    public void setSenhaHash(String senhaHash) {
+        this.senhaHash = senhaHash;
+    }
+
+    public TipoUsuario getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(TipoUsuario perfil) {
+        this.perfil = perfil;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public OffsetDateTime getCriadoEm() {
+        return criadoEm;
+    }
+
+    public OffsetDateTime getAtualizadoEm() {
+        return atualizadoEm;
     }
 }

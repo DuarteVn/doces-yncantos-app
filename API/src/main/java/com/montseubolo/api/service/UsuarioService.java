@@ -14,11 +14,11 @@ public interface UsuarioService {
 
     List<UsuarioResponse> listarTodos();
 
-    UsuarioResponse buscarPorId(String id);
+    UsuarioResponse buscarPorId(Long id);
 
-    UsuarioResponse atualizar(String id, UsuarioAtualizacaoRequest request);
+    UsuarioResponse atualizar(Long id, UsuarioAtualizacaoRequest request);
 
-    void excluir(String id);
+    void excluir(Long id);
 
     Usuario autenticar(String email, String senha, TipoUsuario tipo);
 }
