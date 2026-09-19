@@ -1,6 +1,6 @@
-# CLAUDE.md — Doces Yncantos
+# GEMINI.md — Doces Yncantos
 
-Instruções para agentes de IA (Claude Code / Cursor / Copilot) e para devs humanos deste repositório.
+Instruções para agentes de IA (Gemini / Cursor / Copilot) e para devs humanos deste repositório.
 **Leia este arquivo inteiro antes de escrever qualquer linha de código.**
 
 ---
@@ -24,7 +24,7 @@ O app resolve isso conduzindo **todo** pedido por um funil de confirmação — 
 
 1. **Trello** — histórias, critérios de aceite, regras de negócio. Vence em caso de conflito.
 2. **Protótipo HTML** (não versionado neste repositório — peça o arquivo no grupo) — vence para **números** (preços, tamanhos, mínimos) e para fluxo de telas.
-3. Este CLAUDE.md — vence para arquitetura, convenções e contrato de API.
+3. Este GEMINI.md — vence para arquitetura, convenções e contrato de API.
 
 Se Trello e protótipo divergirem, **não escolha sozinho**: registre na tabela da seção 14 e pergunte no grupo.
 
@@ -69,7 +69,7 @@ Hoje o repositório tem apenas o esqueleto gerado pelas IDEs: um CRUD de `Usuari
 
 ```
 /
-├── CLAUDE.md                  ← este arquivo
+├── GEMINI.md                  ← este arquivo
 ├── README.md
 ├── .gitattributes
 ├── .gitignore                 ← ignora .idea/, *.iml, API/target/, APP/build/, APP/local.properties, .env
@@ -571,4 +571,5 @@ Registre aqui tudo que não está decidido. **Não resolva por conta própria.**
 4. Faça o mínimo que satisfaz o card. Refatoração alheia ao card vai em PR separado.
 5. Rode `mvn test` antes de commitar.
 6. Ao terminar, liste na descrição do PR **cada critério de aceite e como foi atendido**.
-7. Na dúvida sobre regra de negócio: **pergunte**. Não invente, não infira preço, não "melhore" regra da confeiteira.
+7. Na dúvida sobre regra de negócio: **pergunte ao usuário**. Não invente, não infira preço, não "melhore" regra da confeiteira.
+8. Siga as diretrizes de código fornecidas e preste atenção às respostas do usuário para manter o alinhamento com a arquitetura definida.
